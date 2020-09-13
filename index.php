@@ -90,7 +90,7 @@
                     <tr style='background: #5C8EB3;'>
                         <td colspan='7' class='navi'>
                         <a style='margin-right: 50px; color: white' href='$self?month=".$lastMonth. "&year=".$lastYear. "'><<</a>
-                        <
+                        <a style='margin-left: 50px; color: white' href='$self?month = ".$nextMonth. "&year=".$nextYear. "'>>></a>.
                         </td>
                     </tr>
                     <tr>
@@ -102,9 +102,53 @@
                         <td class='datehead'>Сб</td>
                         <td class='datehead'>Вс</td>
                     </tr>
-                </table>
+                    
+                    <tr>"
+                    // очищаем имя класса css
+                    //$class = "";
+                    $weekDay = $dateInfo['wday'];
+                    // Приводим к числа к формату 1 - понедельник, ..., 6 - суббота
+                    if ($weekDay == -1){
+                        $weekDay = 6;
+                    }
+                    //устанавливаем текущий день, как единицу
+                    $day = 1;
+                    // выводим ширину календаря
+                    if ($weekDay > 0){
+                        $calendar .= "<td colspan='$weekDay'> </td>";
+                    }
+                    while ($day <= $maxdays){
+                        if ($weekDay == 7){
+                            $calendar .= "</tr><tr>";
+                            $weekDay = 0;
+                        }
+                        $linkDate = mktime(0,0,0, $month, $day, $year);
+                        // проверяем, если распечатанная дата является сегодняшней датой.
+                        //если так, используем другой класс css, чтобы выделить её
+                         if ((($day < 10 and "0$day" == date('d')) or ($day >= 10 and "$day" == date('d'))) and (($month <10 and "0$month" == date('m')) or ($month >= 10 and "$month" ==date('m'))) and $year == date('Y')){
+                             $class = "caltoday";
+                         }else{
+                            $d = date('m/d/Y', $linkDate);
+                            $class ="cal";
+                         }
+                    }
+                    //помечаем выходные дни красным
+                    if ($weekDay == 5 || $weekDay == 6){
+                        $red = 'style="color:red"';
+                    }else{
+                        $red ='';
+                        $calendar .= "
+                            <td class='{$class}'><span ".$red.">{$day}</span>
+                            </td>";
+                        $day++;
+                        $weekDay++;
+                    }
+                    if ($weekDay != 7){
+                        $calendar .= "<td colspan='" . (7 - $weekDay) . "'> </td>";
+                    }
+                    echo $calendar . "</tr></table>";
             </div>
-            "
+
 
             
             ?>
