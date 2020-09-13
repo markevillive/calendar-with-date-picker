@@ -63,6 +63,16 @@
             $dayHeadings = array('Sunday','Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
             $maxdays = date('t', $firstOfMonth);
             $dateInfo = getdate($firstOfMonth);
+            $month = $dateInfo['mon'];
+            $year = $dateInfo['year'];
+
+            if ($month == '1'){
+                $lastYear = $year - 1;
+            }else{
+                $lastYear = $year;
+            }
+            // Вычитаем один день с первого дня месяца,
+            //чтобы получить в конец прошлого месяца
             
             
             ?>
