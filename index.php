@@ -37,6 +37,12 @@
             }else{
                 $year = date('Y');
             }
+            if ($month == '12'){
+                $nextYear = $year + 1;
+            }else{
+                $nextYear= $year;
+            }
+            
             ?>
         </div>
     </section>
