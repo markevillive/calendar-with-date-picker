@@ -18,6 +18,15 @@
             <?php
             //Местоположение скрипта
             $self = $_SERVER['PHP_SELF'];
+            //Проверяем, была ли переменая month задана в url
+            //или обращаемся к PHP функции date()
+            if (isset($_GET['month'])){
+                $month = $_GET['month'];
+            }elseif (isset($_GET['viewmonth'])){
+                $month = $_GET['viewmonth'];
+            }else{
+                $month = date('m');
+            }
             
             ?>
         </div>
