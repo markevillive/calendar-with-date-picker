@@ -77,6 +77,12 @@
             $lastMonth = date("m", $timestampLastMonth);
             // Проверяем, что если месяц декабрь,
             //на следующий месяц равен 1, а не 13
+
+            if ($month == '12'){
+                $nextMonth = '1';
+            }else{
+                $nextMonth = $month + 1;
+            }
             
 
             
