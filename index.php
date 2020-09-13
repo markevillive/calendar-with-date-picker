@@ -57,6 +57,13 @@
                     "11" => "ноябрь",
                     "12" => "декабрь"
             );
+
+            $firstOfMonth = mktime(0,0,0, $month, 1, $year);
+            //массив имен всех дней в неделе
+            $dayHeadings = array('Sunday','Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+            $maxdays = date('t', $firstOfMonth);
+            $dateInfo = getdate($firstOfMonth);
+            
             
             ?>
         </div>
