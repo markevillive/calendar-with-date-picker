@@ -16,6 +16,8 @@
     <section>
         <div class="container">
             <?php
+            //Местоположение скрипта
+            $self = $_SERVER['PHP_SELF'];
             
             ?>
         </div>
