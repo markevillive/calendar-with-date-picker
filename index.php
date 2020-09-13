@@ -30,8 +30,13 @@
             // Теперь мы проверим, если переменная года устанавливается в URL,
             //или обращаемся к PHP функции date()
             //чтобы установить текущий год, если текущий год не установлен в URL-адресе.
-            
-            
+            if (isset($_GET['year'])){
+               $year = $_GET['year'];
+            }elseif (isset($_GET['viewyear'])){
+                $year = $_GET['viewyear'];
+            }else{
+                $year = date('Y');
+            }
             ?>
         </div>
     </section>
