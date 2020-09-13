@@ -83,7 +83,28 @@
             }else{
                 $nextMonth = $month + 1;
             }
-            
+            //Формируем календарь
+            $calendar ="
+            <div class = \"block-on-center\">
+                <table width='390px' height='280px' style='border: 1px solid #cccccc';>
+                    <tr style='background: #5C8EB3;'>
+                        <td colspan='7' class='navi'>
+                        <a style='margin-right: 50px; color: white' href='$self?month=".$lastMonth. "&year=".$lastYear. "'><<</a>
+                        <
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='datehead'>Пн</td>
+                        <td class='datehead'>Вт</td>
+                        <td class='datehead'>Ср</td>
+                        <td class='datehead'>Чт</td>
+                        <td class='datehead'>Пт</td>
+                        <td class='datehead'>Сб</td>
+                        <td class='datehead'>Вс</td>
+                    </tr>
+                </table>
+            </div>
+            "
 
             
             ?>
