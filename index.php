@@ -53,17 +53,6 @@
 
             // местоположение скрипта
             $self = $_SERVER['PHP_SELF'];
-            //Проверяем была ли переменная month задана в url адресе
-            //если нет - используем функцию php date(), чтобы установить текущий месяц
-            if (isset($_GET['month'])){
-                $month = $_GET['month'];
-                elseif(isset($_GET['viewmonth'])){
-                    $month = $_GET['viewmonth'];
-                }else{
-                    $month = date('m');
-                }
-            }
-
 
             // проверяем, если в переменная month была установлена в URL-адресе,
             //либо используем PHP функцию date(), чтобы установить текущий месяц.
@@ -237,7 +226,6 @@
                 echo "<a style='float: left; margin-left: 10px; font-size: 12px; padding-top: 5px;' href='".$self."?month=".date('m')."&year=".date('Y')."'>&lt;&lt; Вернуться к текущей дате</a>";
             echo "</div>";
 
- develope
             ?>
         </div>
     </section>
